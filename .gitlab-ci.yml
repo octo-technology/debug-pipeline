@@ -8,5 +8,4 @@ Build:
 Unit-Tests:
   stage: test
   script:
-    - npm install
     - npm test
