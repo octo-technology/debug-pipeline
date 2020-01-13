@@ -1,19 +1,12 @@
-variables:
-  PYTHON3_IMAGE: python:alpine
-
-stages:
-  - syntax
-
-PyCodeStyle:
-  image: $PYTHON3_IMAGE
-  stage: syntaxe
+image: node:latest
+ 
+Build:
+  stage: build
   script:
-    - pip install pycodestyle
-    - pycodestyle app.py
+    - docker build .
 
-Pylint:
-  image: $PYTHON3_IMAGE
-  stage: syntax
+Unit-Tests:
+  stage: test
   script:
- - pip install pylint
- - pylint app.py
+    - npm install
+    - npm test
